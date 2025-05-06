@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+  direction: rtl;
+  background: #f8fafc;
+  text-align: center;
+  padding: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
