@@ -1,5 +1,5 @@
 async function fetchData() {
-  const apiURL = "https://ayarmofid-api-wmf1.vercel.app/ayarmofid.js"; // ← آدرس API واقعی‌ات
+  const apiURL = "const apiURL = "https://ayarmofid-api-wmf1.vercel.app/api/ayarmofid"; // ← آدرس API واقعی‌ات
 
   try {
     const res = await fetch(apiURL);
