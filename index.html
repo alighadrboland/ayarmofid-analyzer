@@ -1,0 +1,40 @@
+<script>
+  async function fetchData() {
+    try {
+      const res = await fetch("https://ayarmofid-api-wmf1.vercel.app/ayarmofid.js");
+      const latest = await res.json();
+
+      // تحلیل سیگنال
+      let signal = "";
+      if (latest.pbr > 2 && latest.netBuy > 500000000 && latest.rsi < 30) {
+        signal = "📈 سیگنال ورود";
+      } else if (latest.pbr < 1 && latest.netBuy < -500000000 && latest.rsi > 70) {
+        signal = "📉 سیگنال خروج";
+      } else {
+        signal = "⚖️ بدون سیگنال قطعی";
+      }
+
+      document.getElementById("signal").textContent = signal;
+
+      // رسم نمودار فرضی
+      const ctx = document.getElementById("chart").getContext("2d");
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['قیمت', 'RSI', 'قدرت خرید حقیقی', 'خالص خرید حقیقی'],
+          datasets: [{
+            label: 'تحلیل روز',
+            data: [latest.price, latest.rsi, latest.pbr, latest.netBuy],
+            backgroundColor: ['blue', 'orange', 'green', 'red']
+          }]
+        }
+      });
+
+    } catch (e) {
+      document.getElementById("signal").textContent = "خطا در دریافت داده";
+      console.error(e);
+    }
+  }
+
+  fetchData();
+</script>
