@@ -1,6 +1,6 @@
-async function fetchData() {
-  const apiURL = "const apiURL = "https://ayarmofid-api-c72i.vercel.app/api/ayarmofid"; // ← آدرس API واقعی‌ات
+const apiURL = "https://ayarmofid-analyzer.vercel.app/api/ayarmofid";
 
+async function fetchData() {
   try {
     const res = await fetch(apiURL);
     const data = await res.json();
@@ -22,18 +22,17 @@ async function fetchData() {
     new Chart(ctx, {
       type: "bar",
       data: {
-        labels: ["قیمت", "RSI", "قدرت خرید حقیقی", "خالص خرید"],
+        labels: ["قیمت", "RSI", "PBR", "خالص خرید"],
         datasets: [{
-          label: "تحلیل روز",
+          label: "تحلیل",
           data: [price, rsi, pbr, netBuy / 1e8],
           backgroundColor: ["blue", "orange", "green", "red"]
         }]
       }
     });
-
   } catch (err) {
     document.getElementById("signal").textContent = "❌ خطا در دریافت اطلاعات";
-    console.error(err);
+    console.error("Fetch error:", err);
   }
 }
 
