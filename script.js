@@ -1,4 +1,4 @@
-const apiURL = "https://brsapi.ir/Api/User.php?key=FreeTZPrEbgTZzbW2SSGXOlzjlulRFcz";
+const apiURL = "https://brsapi.ir/Api/Tsetmc/AllSymbols.php?key=FreeTZPrEbgTZzbW2SSGXOlzjlulRFcz&type=2";
 
 async function fetchData() {
   try {
