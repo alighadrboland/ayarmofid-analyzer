@@ -1,4 +1,4 @@
-const apiURL = "https://ayarmofid-analyzer.vercel.app/api/ayarmofid";
+const apiURL = "https://brsapi.ir/Api/User.php?key=FreeTZPrEbgTZzbW2SSGXOlzjlulRFcz";
 
 async function fetchData() {
   try {
